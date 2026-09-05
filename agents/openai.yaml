@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Diagram · 学术架构与示意图"
+  short_description: "参考真实顶会论文，用可编辑矢量对象绘制凝练、规整、有美感的科研图"
+  default_prompt: "用 $academic-diagram，根据我的最新论文与工作区，参考合适的真实论文图，在隔离目录绘制并精修可编辑的架构图或示意图。"
