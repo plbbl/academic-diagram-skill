@@ -1,53 +1,138 @@
-# Academic Diagram
+<div align="center">
 
-A compact skill for editable, reference-guided academic architecture diagrams and conceptual schematics.
+<h1>Academic Diagram</h1>
+<h3>Less text. Clearer structure. Figures worth showing.</h3>
 
-面向 Astra 等能够直接理解论文、设计和精修矢量对象的 agent。目标是：**科学内容凝练，图形表达丰富，排版规整，留白舒服。** 不接管整篇论文流程，不负责实验定量图或定性结果拼图。
+<p>A compact agent skill for editable academic architecture diagrams and conceptual schematics.<br>Paper-first reasoning. Real visual references. Render, inspect, refine.</p>
 
-## Skill 做什么
+<p><strong>English</strong> · <a href="README.zh-CN.md">简体中文</a></p>
 
-1. 确认最新论文与工作区，提炼科学主干；文字、架构和组件凝练、直白、简洁。
-2. 真正打开合适的论文参考图，学习布局、组件、配色和连线。
-3. 用 draw.io、PowerPoint、Canva、Illustrator 或 SVG 的可编辑对象作图。
-4. 打开渲染图，对照参考检查留白与重心，逐条追查箭头，再看实际论文尺寸；发现问题就改源文件、重新导出并复看，不直接交付未经检查的首版。
+<p>
+  <img src="https://img.shields.io/badge/Showcase-6_figures-D2E5DF?style=flat-square&amp;labelColor=34444D" alt="Six showcase figures">
+  <img src="https://img.shields.io/badge/Editable-draw.io_%2B_SVG-D9E6F1?style=flat-square&amp;labelColor=34444D" alt="Editable draw.io and SVG">
+  <img src="https://img.shields.io/badge/References-30_figures-EEDAA2?style=flat-square&amp;labelColor=34444D" alt="Thirty reference figures">
+</p>
 
-主流程只有一个 [SKILL.md](SKILL.md)，没有强制图像生成、固定候选数、固定迭代轮数或额外状态机。工具按当前环境选择；本仓库不附带这些软件，也不假定相关插件已经安装。
+<p><a href="#gallery">Explore the gallery</a> · <a href="#quick-start">Get started</a> · <a href="examples/academic-diagram-showcase.pdf">View the PDF</a> · <a href="SKILL.md">Read the skill</a></p>
 
-## 安装与使用
+</div>
 
-将这个仓库作为一个完整 skill 文件夹安装，保留 `SKILL.md`、`agents/` 和 `references/` 的相对位置。Codex 用户可以在目标目录不存在时执行：
+---
+
+## Gallery
+
+**Six diagrams made with this skill.** These are reference-guided redesigns of published methods—not the authors’ original figures, blind-test outputs, or reproduced experiments. Tokens, waveforms and feature colors are illustrative. [Sources & scope →](examples/README.md)
+
+### 01 / MaskGCT · Speech synthesis
+
+Two generation stages. One reference voice. A clear path from text to speech.
+
+<a href="examples/figures/02-maskgct.png"><img src="examples/figures/02-maskgct.png" width="100%" alt="MaskGCT: Two generation stages. One reference voice. A clear path from text to speech."></a>
+
+[PNG](examples/figures/02-maskgct.png) · [SVG](examples/figures/02-maskgct.drawio.svg) · [draw.io source](examples/figures/02-maskgct.drawio) · [Paper · ICLR 2025](https://proceedings.iclr.cc/paper_files/paper/2025/hash/74a31a3b862eb7f01defbbed8e5f0c69-Abstract-Conference.html)
+
+---
+
+### 02 / Janus · Multimodal architecture
+
+Separate visual encoders. A shared autoregressive model. Task-specific outputs.
+
+<a href="examples/figures/05-janus.png"><img src="examples/figures/05-janus.png" width="100%" alt="Janus: Separate visual encoders. A shared autoregressive model. Task-specific outputs."></a>
+
+[PNG](examples/figures/05-janus.png) · [SVG](examples/figures/05-janus.drawio.svg) · [draw.io source](examples/figures/05-janus.drawio) · [Paper · CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Janus_Decoupling_Visual_Encoding_for_Unified_Multimodal_Understanding_and_Generation_CVPR_2025_paper.html)
+
+<sub>The visual routes represent different tasks, not simultaneous inputs. The generation encoder provides training image codes; text-to-image inference starts from text.</sub>
+
+---
+
+### 03 / CUT3R · Persistent 3D state
+
+Read the image. Update the state. Recover geometry through two interacting streams.
+
+<a href="examples/figures/03-cut3r.png"><img src="examples/figures/03-cut3r.png" width="100%" alt="CUT3R: Read the image. Update the state. Recover geometry through two interacting streams."></a>
+
+[PNG](examples/figures/03-cut3r.png) · [SVG](examples/figures/03-cut3r.drawio.svg) · [draw.io source](examples/figures/03-cut3r.drawio) · [Paper · CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Wang_Continuous_3D_Perception_Model_with_Persistent_State_CVPR_2025_paper.html)
+
+---
+
+### 04 / LoftUp · Feature upsampling
+
+Coordinates become queries. Coarse features supply context. Detail emerges through cross-attention.
+
+<a href="examples/figures/01-loftup.png"><img src="examples/figures/01-loftup.png" width="100%" alt="LoftUp: Coordinates become queries. Coarse features supply context. Detail emerges through cross-attention."></a>
+
+[PNG](examples/figures/01-loftup.png) · [SVG](examples/figures/01-loftup.drawio.svg) · [draw.io source](examples/figures/01-loftup.drawio) · [Paper · ICCV 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Huang_LoftUp_Learning_a_Coordinate-Based_Feature_Upsampler_for_Vision_Foundation_Models_ICCV_2025_paper.html)
+
+---
+
+### 05 / LLaDA · Masked language modeling
+
+A compact comparison of random-mask training and iterative parallel sampling.
+
+<a href="examples/figures/04-llada.png"><img src="examples/figures/04-llada.png" width="100%" alt="LLaDA: A compact comparison of random-mask training and iterative parallel sampling."></a>
+
+[PNG](examples/figures/04-llada.png) · [SVG](examples/figures/04-llada.drawio.svg) · [draw.io source](examples/figures/04-llada.drawio) · [Paper · NeurIPS 2025](https://proceedings.neurips.cc/paper_files/paper/2025/hash/48b383b24230e0e6e649d9c98dae4d8c-Abstract-Conference.html)
+
+---
+
+### 06 / Transfusion · Text meets diffusion
+
+One transformer. Discrete text and continuous image latents. Two prediction objectives.
+
+<a href="examples/figures/06-transfusion.png"><img src="examples/figures/06-transfusion.png" width="100%" alt="Transfusion: One transformer. Discrete text and continuous image latents. Two prediction objectives."></a>
+
+[PNG](examples/figures/06-transfusion.png) · [SVG](examples/figures/06-transfusion.drawio.svg) · [draw.io source](examples/figures/06-transfusion.drawio) · [Paper · ICLR 2025](https://proceedings.iclr.cc/paper_files/paper/2025/hash/12678c3948153f4bc391f51e2082bd6e-Abstract-Conference.html)
+
+<sub>Modalities are grouped schematically, not shown as exact shifted training targets. VAE and modality adapters are omitted.</sub>
+
+---
+
+## What makes the workflow different
+
+| Paper first | Design with purpose | Refine the actual render |
+| --- | --- | --- |
+| Read the current manuscript and relevant workspace. Decide what the reader should understand. Keep the scientific structure honest. | Use short labels, meaningful shapes, restrained color, aligned components and deliberate whitespace. Learn from real paper figures. | Trace every arrow. Check typography and spacing at paper size. Fix the editable source, export again, and reopen the result. |
+
+One compact [SKILL.md](SKILL.md). No mandatory image-generation step, fixed candidate count, or fixed iteration count. The skill focuses on **architecture diagrams, method overviews and conceptual schematics**—not quantitative charts or qualitative result grids.
+
+## Quick start
+
+Install the complete folder in a skill-compatible agent environment. For Codex, when the destination does **not** already exist:
 
 ```sh
 git clone https://github.com/plbbl/academic-diagram-skill.git ~/.codex/skills/academic-diagram
 ```
 
-如果已有同名目录，先检查，不直接覆盖。重新打开会话后调用：
+Preserve the relative locations of `SKILL.md`, `agents/` and `references/`. Inspect an existing installation before changing it. Start a new session and ask:
 
-> 用 $academic-diagram，根据这篇论文的最新成稿和工作区做一张示意图。先选合适的美学参考，用可编辑对象画，在隔离目录精修，给我源文件、论文用图和预览。
+```text
+Use $academic-diagram to create an architecture or conceptual diagram from
+my attached paper and its latest research workspace. Choose a relevant visual
+reference, draw with editable objects in an isolated folder, inspect the render
+at paper size, refine it, and deliver the editable source, SVG/PDF and PNG.
+Do not modify my formal manuscript until I approve the figure.
+```
 
-默认不改正式论文；确认满意后，再明确要求替换。也可直接让其他支持本地 skill 的 agent 读取 `SKILL.md`；画图工具由宿主环境提供。
+Other agents can load [SKILL.md](SKILL.md) directly if their host supports local instructions. Drawing tools are supplied by the host: draw.io, PowerPoint, Canva, Illustrator or direct SVG. **This repository is a skill, not a bundled drawing application.** The six showcase examples use native draw.io objects and SVG.
 
-## 美学参考
+**Want a single copy-paste prompt?** [中文一键使用提示词 →](GET_STARTED.zh-CN.md) It asks your agent to star the repository using an authorized account, load the skill, and begin with your paper. Starring is optional and never blocks use.
 
-包含用户提供的 **30 张独立论文图、3 张总览**，来源目录涵盖 27 篇标注为 2025–2026 年的论文。每张保留论文链接、图号、PDF 页序和可学习的设计特点。
+## Aesthetic reference atlas
 
-[完整出处与选图索引](references/README.md) · [总览 01–10](references/previews/overview-01.jpg) · [总览 11–20](references/previews/overview-02.jpg) · [总览 21–30](references/previews/overview-03.jpg)
+The separate reference collection contains **30 paper-figure crops and 3 contact sheets**, supplied with metadata for 27 papers labeled 2025–2026. These are **third-party references, not skill outputs**. Select a suitable structure, then inspect the individual figure.
 
-下面是**第三方参考图，不是这个 skill 生成的作品**：
+[Browse the source index](references/README.md) · [Figures 01–10](references/previews/overview-01.jpg) · [Figures 11–20](references/previews/overview-02.jpg) · [Figures 21–30](references/previews/overview-03.jpg)
 
-| 可学习的设计 | 独立参考图与出处 |
-|---|---|
-| 主轴、token 阵列、对齐 | [VGGT · Fig. 2](references/figures/01_vggt_CVPR2025_fig2.png) |
-| 有意义的时序堆叠和回路 | [SAM 2 · Fig. 3](references/figures/02_sam2_ICLR2025_fig3.png) |
-| 用状态色块表达过程 | [LLaDA · Fig. 2](references/figures/21_llada_NeurIPS2025_fig2.png) |
-| 简洁的双支路模块 | [MambaVision · Fig. 3](references/figures/29_mambavision_CVPR2025_fig3.png) |
+## Files, credit & rights
 
-![VGGT Fig. 2 — third-party aesthetic reference](references/figures/01_vggt_CVPR2025_fig2.png)
+- [Six-page showcase PDF](examples/academic-diagram-showcase.pdf) — vector figures with explanatory captions and paper links.
+- [Editable examples](examples/figures/) — six `.drawio`, six native-text SVGs, and six 3000 px PNGs.
+- [Example sources & limitations](examples/README.md) — method attribution, simplifications and editing notes.
 
-参考来源：[VGGT: Visual Geometry Grounded Transformer](https://openaccess.thecvf.com/content/CVPR2025/html/Wang_VGGT_Visual_Geometry_Grounded_Transformer_CVPR_2025_paper.html)，CVPR 2025，Fig. 2。图片权利属于原权利人。
+Original skill instructions, agent configuration and documentation are covered by [MIT](LICENSE). That license does **not** automatically cover the showcase artwork or third-party reference images. See [example rights](examples/README.md#rights) and [third-party notices](THIRD_PARTY_NOTICES.md). The methods belong to their authors; inclusion does not imply endorsement. No unpublished papers, private research workspaces or experimental data are included.
 
-## 权利与范围
-
-原创 skill 指令和原创说明采用 [MIT License](LICENSE)。`references/` 中的论文图、预览及原始出处目录**不适用这个 MIT 授权**；逐图来源见索引，权利说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本仓库不授予这些论文图片的再许可，也不代表原作者或会议背书。
-
-仓库不包含任何未发表论文、实验数据或私有工作区内容。
+<div align="center">
+<br>
+<strong>If this helps your research, a GitHub star helps others find it.</strong><br>
+<sub>Keep the science precise. Let the figure do the explaining.</sub>
+</div>
